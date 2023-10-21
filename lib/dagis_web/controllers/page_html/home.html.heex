@@ -1,0 +1,67 @@
+<.flash_group flash={@flash} />
+
+<header>
+ 	<div class="nav" id="nav" phx-hook="nav">
+            <div class="logo">
+                <img src={~p"/images/logo.svg"} alt="">
+            </div>
+            <ul>
+                <li>HOME</li>
+                <li><a href={~p"/map"}>MAP</a></li>
+                <li>CONTACT</li>
+				<li><a href={~p"/users/log_in"}>LOGIN</a></li>
+				<li><a href={~p"/users/register"}>REGISTER</a></li>
+            </ul>
+	</div>
+	
+	<div class="banner h-[100vh] w-full relative overflow-hidden before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[url('/images/road_bg1.jpg')] before:content-[''] before:bg-no-repeat before:bg-cover before:bg-[top_left] before:bg-fixed before:-z-[1] before:brightness-[0.5] after:absolute after:left-0 after:w-full after:h-[10vh] after:top-[100vh] after:bg-[url('https://livedemo00.template-help.com/wt_prod-20838/images/cloud-2.png')]">
+		<h1 class="title absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-[15vh] font-[cursive] opacity-0">Traffic Jam</h1>
+		<img src="./images/car.png" alt="" class ="absolute left-[50%] bottom-0 -translate-x-[50%] translate-y-[10%] w-[70%] opacity-0">
+	</div>
+</header>
+<div id="container" class="container min-h-[1500px] bg-[#ddd]" phx-hook="nav">
+	<div class="item intro p-[20px] text-center h-[100vh] flex justify-center items-center text-[20px]">
+		<div class="content">
+			<h2 class="showtotop delay-0.2 text-[150px] p-0 m-[30px_0] font-[cursive]">Traffic Jam</h2>
+			<div class="text">
+				<p class="showtotop delay-04">Visualize traffic hotspots</p>
+				<p class="showtotop delay-06">Provides useful information about speed and route</p>
+				<p class="showtotop delay-08">Solution to reduce traffic congestion</p>
+			</div>
+		</div>
+	</div>
+
+	<%!--  --%>
+	<div class ="item travel h-screen w-[100%] p-[100px_10%] bg-[#cfdadb] text-center">
+		<div class="title pb-[50px]">
+			<div class ="showtotop">@traffic.jam</div>
+		</div>
+		<h2 class="showtotop delay-02">Welcome to here</h2>
+		<div class="list">
+			<div class="itemImg showtotop delay-04 w-[30%] ml-[30px] float-left">
+				<img src="./images/1.png" class="w-[90%] p-[5%] h-[520px] object-cover">
+				<div class="content">
+					<h3>Tiêu hao năng lượng</h3>
+					<h3>Ùn tắc giao thông kéo dài gây tiêu hao một lượng lớn năng lượng khí đốt</h3>
+				</div>
+			</div>
+
+			<div class="itemImg showtotop delay-06 w-[30%] ml-[30px] float-left">
+				<img src="./images/3.jpg" class="w-[90%] p-[5%] h-[520px] object-cover">
+				<div class="content">
+					<h3>Ô nhiễm không khí</h3>
+					<h3>Gây ra các tác nhân có hại cho khí quyển</h3>
+				</div>
+			</div>
+
+			<div class="itemImg showtotop delay-08 w-[30%] ml-[30px] float-left">
+				<img src="./images/2.png" class="w-[90%] p-[5%] h-[520px] object-cover">
+				<div class="content">
+					<h3>Trực quan hóa</h3>
+					<h3>Thể hiện mức độ tắc nghẽn, từ đó đề ra giải pháp</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
