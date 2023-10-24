@@ -23,7 +23,7 @@ import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 // import map
-import mapboxgl from "mapbox-gl";
+import mapboxgl from "C:/Users/THANH HUNG/node_modules/@types/mapbox-gl/index";
 // get hook from map_live.html.heex
 let Hooks = {}
 Hooks.MainMap = {
