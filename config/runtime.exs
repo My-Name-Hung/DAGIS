@@ -51,9 +51,18 @@ if config_env() == :prod do
   host = System.get_env("PHX_HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
+  app_name =
+  System.get_env("FLY_APP_NAME") ||
+    raise "FLY_APP_NAME not available"
+
+  app_url = "https://#{app_name}.fly.dev:443"
+
   config :dagis, DagisWeb.Endpoint,
-    check_origin: :coon,
-    url: [host: "#{app_name}.fly.dev", port: 80],
+    check_origin: [
+      "https://dagis.com.au:443",
+      "https://www.dagis.com.au:443",
+      app_url
+    ],
     http: [
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: String.to_integer(System.get_env("PORT") || "4000")
