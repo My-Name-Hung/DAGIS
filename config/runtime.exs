@@ -51,24 +51,19 @@ if config_env() == :prod do
   host = System.get_env("PHX_HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
-  app_name =
-  System.get_env("FLY_APP_NAME") ||
-    raise "FLY_APP_NAME not available"
-
-  app_url = "https://#{app_name}.fly.dev:443"
-
   config :dagis, DagisWeb.Endpoint,
-    check_origin: [
-      "https://dagis.com.au:443",
-      "https://www.dagis.com.au:443",
-      app_url
-    ],
+    url: [host: host, port: 443, scheme: "https"],
     http: [
+      # Enable IPv6 and bind on all interfaces.
+      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
+      # See the documentation on https://hexdo  cs.pm/plug_cowboy/Plug.Cowboy.html
+      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
-      port: String.to_integer(System.get_env("PORT") || "4000")
+      port: port
     ],
     secret_key_base: secret_key_base
 
+    
   # ## SSL Support
   #
   # To get SSL working, you will need to add the `https` key

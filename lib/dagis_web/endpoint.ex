@@ -48,4 +48,6 @@ defmodule DagisWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
   plug DagisWeb.Router
+
+  
 end
