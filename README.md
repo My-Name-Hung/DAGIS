@@ -1,5 +1,15 @@
-# DAGIS
-Project in University
+#To start your Phoenix server:
 
-Use phoenix framwork elixir building
+Run mix setup to install and setup dependencies
+Start Phoenix endpoint with mix phx.server or inside IEx with iex -S mix phx.server
+Now you can visit localhost:4000 from your browser.
+
+Ready to run in production? Please check our deployment guides.
+
+#Learn more
+Official website: https://www.phoenixframework.org/
+Guides: https://hexdocs.pm/phoenix/overview.html
+Docs: https://hexdocs.pm/phoenix
+Forum: https://elixirforum.com/c/phoenix-forum
+Source: https://github.com/phoenixframework/phoenix
 
