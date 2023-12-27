@@ -3,6 +3,8 @@ defmodule DagisWeb.Router do
 
   import DagisWeb.UserAuth
 
+
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -13,8 +15,18 @@ defmodule DagisWeb.Router do
     plug :fetch_current_user
   end
 
+  pipeline :google do
+  plug Plug.Parsers,
+      parsers: [:urlencoded],
+      pass: ["text/html"]
+
+
+end
+
   pipeline :api do
     plug :accepts, ["json"]
+
+
   end
 
   scope "/", DagisWeb do
@@ -22,8 +34,12 @@ defmodule DagisWeb.Router do
 
     get "/", PageController, :home
     live "/map",MapLive
+    live "/bad", BaLive
     live "/tasks", TaskController
+
   end
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", DagisWeb do
@@ -47,20 +63,24 @@ defmodule DagisWeb.Router do
     end
   end
 
+
+
+
   ## Authentication routes
 
   scope "/", DagisWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
-
+      get "/auth/:provider", UserOauthController, :request
+      get "/auth/:provider/callback", UserOauthController, :callback
     live_session :redirect_if_user_is_authenticated,
       on_mount: [{DagisWeb.UserAuth, :redirect_if_user_is_authenticated}] do
-      live "/users/register", UserRegistrationLive, :new
-      live "/users/log_in", UserLoginLive, :new
-      live "/users/reset_password", UserForgotPasswordLive, :new
-      live "/users/reset_password/:token", UserResetPasswordLive, :edit
+      live "/users1/register", UserRegistrationLive, :new
+      live "/users1/log_in", UserLoginLive, :new
+      live "/users1/reset_password", UserForgotPasswordLive, :new
+      live "/users1/reset_password/:token", UserResetPasswordLive, :edit
     end
 
-    post "/users/log_in", UserSessionController, :create
+    post "/users1/log_in", UserSessionController, :create
   end
 
   scope "/", DagisWeb do
@@ -68,20 +88,20 @@ defmodule DagisWeb.Router do
 
     live_session :require_authenticated_user,
       on_mount: [{DagisWeb.UserAuth, :ensure_authenticated}] do
-      live "/users/settings", UserSettingsLive, :edit
-      live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+      live "/users1/settings", UserSettingsLive, :edit
+      live "/users1/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end
   end
 
   scope "/", DagisWeb do
     pipe_through [:browser]
 
-    delete "/users/log_out", UserSessionController, :delete
+    delete "/users1/log_out", UserSessionController, :delete
 
     live_session :current_user,
       on_mount: [{DagisWeb.UserAuth, :mount_current_user}] do
-      live "/users/confirm/:token", UserConfirmationLive, :edit
-      live "/users/confirm", UserConfirmationInstructionsLive, :new
+      live "/users1/confirm/:token", UserConfirmationLive, :edit
+      live "/users1/confirm", UserConfirmationInstructionsLive, :new
     end
   end
 end

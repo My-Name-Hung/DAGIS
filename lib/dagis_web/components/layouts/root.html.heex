@@ -8,34 +8,21 @@
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}></script>
-
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    <script src='mapbox-gl-traffic.js'></script>
+    <link href='mapbox-gl-traffic.css' rel='stylesheet' />
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.css" type="text/css">
   </head>
-  <body class="bg-white antialiased">
-    <ul class="relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
-      <%= if @current_user do %>
-        <li class="text-[0.8125rem] leading-6 text-zinc-900">
-          <%= @current_user.email %>
-        </li>
-        <li>
-          <.link
-            href={~p"/users/settings"}
-            class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-          >
-            Settings
-          </.link>
-        </li>
-        <li>
-          <.link
-            href={~p"/users/log_out"}
-            method="delete"
-            class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-          >
-            Log out
-          </.link>
-        </li>
-      <% else %>
-      <% end %>
-    </ul>
+  
+  <body>
     <%= @inner_content %>
   </body>
 </html>

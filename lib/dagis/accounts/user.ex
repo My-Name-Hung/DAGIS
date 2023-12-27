@@ -2,14 +2,18 @@ defmodule Dagis.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "users" do
+  schema "users1" do
     field :email, :string
+    field :role, :string, default: "user"
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
 
     timestamps()
   end
+
+
+
 
   @doc """
   A user changeset for registration.

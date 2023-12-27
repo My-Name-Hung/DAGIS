@@ -59,6 +59,23 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Config Auth Google
+config :ueberauth, Ueberauth,
+  providers: [
+    google: {Ueberauth.Strategy.Google, []},
+    github: {Ueberauth.Strategy.Github, [default_scope: "user:email"]},
+    facebook: {Ueberauth.Strategy.Facebook, []}
+  ]
+
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id: "519317591544-2v81tnpa3u76nj5rcqiemcv8aqit4682.apps.googleusercontent.com",
+  client_secret: "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"
+
+# Config auth github
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: "af6121e121d89581993b",
+  client_secret: "6048bd2a3d0cd42f04552ebcc5d830a7e0db33a9"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

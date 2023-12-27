@@ -9,11 +9,45 @@
                 <li>HOME</li>
                 <li><a href={~p"/map"}>MAP</a></li>
                 <li>CONTACT</li>
-				<li><a href={~p"/users/log_in"}>LOGIN</a></li>
-				<li><a href={~p"/users/register"}>REGISTER</a></li>
+				<%= if @current_user do %>
+				<li class="text-[0.8125rem] leading-6 text-white">
+					<%= @current_user.email %>
+				</li>
+				<li>
+					<.link
+					href={~p"/users1/settings"}
+					class="text-[0.8125rem] leading-6 text-white font-semibold hover:text-zinc-700"
+					>
+					Settings
+					</.link>
+				</li>
+				<li>
+					<.link
+					href={~p"/users1/log_out"}
+					method="delete"
+					class="text-[0.8125rem] leading-6 text-white font-semibold hover:text-zinc-700"
+					>
+					Log out
+					</.link>
+				</li>
+				<% else %>
+				<li><a href={~p"/users1/log_in"}>LOGIN</a></li>
+				<li><a href={~p"/users1/register"}>REGISTER</a></li>
+				<% end %>
+				<li>
+					<div id="search" phx-hook="search">
+						<button id="trigger" class="trigger-button text-[17px] relative block m-auto p-[10px_30px] cursor-pointer active:border-t-[5px_soild_white]" type="button"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+								<path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
+								</svg></button>
+						<div id="content" class="hidden">
+							<input class="text-white placeholder:text-white text-[20px] leading-none  outline-[5px] w-full rounded-[9999em] bg-transparent relative border-[2px] text-center border-white p-[3px] inline-block h-[40px]" type="text" placeholder="Search...">
+						</div>
+					</div>
+			</li>
             </ul>
+			
 	</div>
-	
+
 	<div class="banner h-[100vh] w-full relative overflow-hidden before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[url('/images/road_bg1.jpg')] before:content-[''] before:bg-no-repeat before:bg-cover before:bg-[top_left] before:bg-fixed before:-z-[1] before:brightness-[0.5] after:absolute after:left-0 after:w-full after:h-[10vh] after:top-[100vh] after:bg-[url('https://livedemo00.template-help.com/wt_prod-20838/images/cloud-2.png')]">
 		<h1 class="title absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white text-[15vh] font-[cursive] opacity-0">Traffic Jam</h1>
 		<img src="./images/car.png" alt="" class ="absolute left-[50%] bottom-0 -translate-x-[50%] translate-y-[10%] w-[70%] opacity-0">

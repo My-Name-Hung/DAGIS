@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "topbar": "^2.0.1"
   }
 }

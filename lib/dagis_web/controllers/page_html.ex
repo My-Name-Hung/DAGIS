@@ -3,4 +3,3 @@ defmodule DagisWeb.PageHTML do
 
   embed_templates "page_html/*"
 end
-

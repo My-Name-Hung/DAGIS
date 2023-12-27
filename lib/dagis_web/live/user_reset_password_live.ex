@@ -31,8 +31,8 @@ defmodule DagisWeb.UserResetPasswordLive do
       </.simple_form>
 
       <p class="text-center text-sm mt-4">
-        <.link href={~p"/users/register"}>Register</.link>
-        | <.link href={~p"/users/log_in"}>Log in</.link>
+        <.link href={~p"/users1/register"}>Register</.link>
+        | <.link href={~p"/users1/log_in"}>Log in</.link>
       </p>
     </div>
     """
@@ -61,7 +61,7 @@ defmodule DagisWeb.UserResetPasswordLive do
         {:noreply,
          socket
          |> put_flash(:info, "Password reset successfully.")
-         |> redirect(to: ~p"/users/log_in")}
+         |> redirect(to: ~p"/users1/log_in")}
 
       {:error, changeset} ->
         {:noreply, assign_form(socket, Map.put(changeset, :action, :insert))}

@@ -1,0 +1,34 @@
+
+ 
+<div class="map-overlay top font-sans absolute w-[200px] top-0 left-0 p-[10px]">
+    <div class="map-overlay-inner bg-[#fff] shadow-[0_1px_2px_rgba(0,0,0,0.1)] rounded-[3px] p-[10px] mb-[10px]">
+        <fieldset class="select-fieldset flex justify-between border-none">
+            <label class="font-bold mr-[10px]">Select light preset</label>
+            <select id="lightPreset" name="lightPreset" class="w-full">
+                <!-- Each value matches a light preset -->
+                <option value="dawn">Dawn</option>
+                <option value="day" selected="">Day</option>
+                <option value="dusk">Dusk</option>
+                <option value="night">Night</option>
+            </select>
+        </fieldset>
+        <fieldset class="flex justify-between border-none">
+            <label for="showPlaceLabels">Show place labels</label>
+            <input type="checkbox" id="showPlaceLabels" checked="">
+        </fieldset>
+        <fieldset class="flex justify-between border-none">
+            <label for="showPointOfInterestLabels">Show POI labels</label>
+            <input type="checkbox" id="showPointOfInterestLabels" checked="">
+        </fieldset>
+        <fieldset class="flex justify-between border-none">
+            <label for="showRoadLabels">Show road labels</label>
+            <input type="checkbox" id="showRoadLabels" checked="">
+        </fieldset>
+        <fieldset class="flex justify-between border-none">
+            <label for="showTransitLabels">Show transit labels</label>
+            <input type="checkbox" id="showTransitLabels" checked="">
+        </fieldset>
+    </div>
+</div>
+<div class ="h-screen w-screen" id="map1" phx-hook="MainMap1">   
+</div>

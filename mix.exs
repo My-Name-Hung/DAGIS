@@ -50,7 +50,13 @@ defmodule Dagis.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:csv, "~> 3.0"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:elixir_auth_google, "~> 1.6.9"},
+      {:ueberauth, "~> 0.7.0"},
+      {:ueberauth_github, "~> 0.8.1"},
+      {:ueberauth_google, "~> 0.10"},
+      {:pbkdf2_elixir, "~> 2.0"},
+      {:joken, "~> 2.5"}
     ]
   end
 

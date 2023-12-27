@@ -21,8 +21,8 @@ defmodule DagisWeb.UserConfirmationInstructionsLive do
       </.simple_form>
 
       <p class="text-center mt-4">
-        <.link href={~p"/users/register"}>Register</.link>
-        | <.link href={~p"/users/log_in"}>Log in</.link>
+        <.link href={~p"/users1/register"}>Register</.link>
+        | <.link href={~p"/users1/log_in"}>Log in</.link>
       </p>
     </div>
     """
@@ -36,7 +36,7 @@ defmodule DagisWeb.UserConfirmationInstructionsLive do
     if user = Accounts.get_user_by_email(email) do
       Accounts.deliver_user_confirmation_instructions(
         user,
-        &url(~p"/users/confirm/#{&1}")
+        &url(~p"/users1/confirm/#{&1}")
       )
     end
 
